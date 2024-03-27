@@ -1,0 +1,35 @@
+request : 값을 받아오는 함수
+replace : 값의 문자를 바꿔주는 함수
+  replace(abc, "a", "apple")
+	= abc에서의 a를 apple로 치환하는 것
+mid : 원하는 부분의 값을 가져오는 함수
+  mid(abcde, 2, 3)
+	= abcde에서 2번째인 b부터 3개 가져와 출력하는 것이므로 bcd가 출력
+& : 두 값을 합치는 함수
+
+
+<%
+    str = Request("str")
+
+    If not str = "" Then
+        result = Replace(str,"a","aad")
+        result = Replace(result,"i","in")
+        result1 = Mid(result,2,2)
+        result2 = Mid(result,4,6)
+        result = result1 & result2
+        Response.write result
+        If result = "admin" Then
+            pw = "????????"
+        End if
+    End if
+%>
+
+위에 적은 명령어를 위 문제에 대입해 차근차근 변환해보면 밑의 값을 얻을 수 있다.
+
+result  	a	    ai	    ami
+result	  aad	  aadin	  aadmin
+result1  	ad	  ad	    ad
+result2		      in	    min
+result	  ad	  adin	  admin
+
+그러므로 답은 "ami"이다.
